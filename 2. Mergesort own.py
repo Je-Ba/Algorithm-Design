@@ -31,7 +31,23 @@ def mergeSort(alist):
             k=k+1
     print("Merging ",alist)
 
-alist = [54,26,93,17,77,31,44,55,20]
-mergeSort(alist)
-print(alist)
 
+
+def merge_two_lists(a,b):
+    merged_list=[]
+    j=0
+    i=0
+    while i<len(a) and j<len(b):
+        if a[i]<b[j]:
+            merged_list.append(a[i])
+            i+=1
+        else:
+            merged_list.append(b[j])
+            j+=1
+    if i==len(a):
+        merged_list = merged_list+b[j:]
+    if j==len(b):
+        merged_list = merged_list + a[i:]
+    return(merged_list)
+
+print(merge_two_lists([1,3,5,7,9,11,18,20],[2,4,6,8,9,10]))
